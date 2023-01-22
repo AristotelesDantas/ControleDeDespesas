@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Controle de Despesas</string>
+    <string name="tipos_de_despesas">Tipos de Despesas</string>
+    <string name="despesas_fixas">Despesas Fixas</string>
+    <string name="despesas_com_alimentacao">Despesas com Alimentação</string>
+    <string name="despesas_com_transporte">Despesas com Transporte</string>
+    <string name="despesas_com_lazer">Despesas com Lazer</string>
+    <string name="contas">Contas</string>
+    <string name="carteira">Carteira</string>
+    <string name="conta_corrente">Conta Corrente</string>
+    <string name="pagamento">Pagamento</string>
+    <string name="salvar">Salvar</string>
+    <string name="limpar">Limpar</string>
+    <string name="dinheiro">Dinheiro</string>
+    <string name="cartao">Cartão</string>
+    <string name="pix">Pix</string>
+    <string name="foi_selecionado">Foi selecionado!</string>
+    <string name="nenhum_selecionado">Não tem nenhum selecionado!</string>
 </resources>
