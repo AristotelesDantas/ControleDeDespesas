@@ -15,5 +15,9 @@
     <string name="cartao">Cartão</string>
     <string name="pix">Pix</string>
     <string name="foi_selecionado">Foi selecionado!</string>
+    <string name="foi_selecionada">" Foi selecionada!"</string>
     <string name="nenhum_selecionado">Não tem nenhum selecionado!</string>
+    <string name="nenhuma_despesa_selecionada">Não tem nenhuma despesa selecionada!</string>
+    <string name="nenhuma_opcao_foi_selecionada">Nenhuma opção de conta foi selecionada!</string>
+    <string name="foram_selecionados">Foram selecionados!</string>
 </resources>

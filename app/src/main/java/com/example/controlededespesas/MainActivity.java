@@ -6,8 +6,10 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Calendar calendar;
 
     private Spinner spinnerPagamento;
+    private RadioGroup radioGroupDespesas;
+    private CheckBox cbCarteira, cbContaCorrente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        radioGroupDespesas = findViewById(R.id.radioGroupDespesas);
         spinnerPagamento = findViewById(R.id.spinnerPagamento);
+        cbCarteira = findViewById(R.id.checkBoxCarteira);
+        cbContaCorrente = findViewById(R.id.checkBoxContaCorrente);
 
         popularSpinner();
     }
@@ -72,6 +79,55 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void mostrarSelecionados (View view){
+
+        //--------------------Mostrar as despesas------------------
+
+          String mensagem1 = "";
+        switch (radioGroupDespesas.getCheckedRadioButtonId()){
+            case R.id.radioButtonFixas:
+                mensagem1 = getString(R.string.despesas_fixas) +
+                           getString(R.string.foi_selecionada);
+                break;
+            case R.id.radioButtonAlimentacao:
+                mensagem1 = getString(R.string.despesas_com_alimentacao) +
+                           getString(R.string.foi_selecionada);
+                break;
+            case R.id.radioButtonTransportes:
+                mensagem1 = getString(R.string.despesas_com_transporte) +
+                           getString(R.string.foi_selecionada);
+                break;
+            case R.id.radioButtonLazer:
+                mensagem1 = getString(R.string.despesas_com_lazer) +
+                           getString(R.string.foi_selecionada);
+                break;
+
+            default:
+                mensagem1 = getString(R.string.nenhuma_despesa_selecionada);
+        }
+        //Toast.makeText(this,                mensagem1,                Toast.LENGTH_LONG).show();
+
+
+        //-------------------Mostrar as contas-----------------
+
+        String mensagem2 = "";
+
+        if (cbCarteira.isChecked()){
+            mensagem2 = getString(R.string.carteira) + "\n";
+        }
+        if (cbContaCorrente.isChecked()){
+            mensagem2 = getString(R.string.conta_corrente);
+        }
+        if (mensagem2.equals("")){
+            mensagem2 = getString(R.string.nenhuma_opcao_foi_selecionada);
+        }else{
+            mensagem2 = getString(R.string.foram_selecionados) + "\n" + mensagem2;
+        }
+        //Toast.makeText(this, mensagem2, Toast.LENGTH_LONG).show();
+
+
+
+        //------------------Mostrar forma de pagamento--------------
+
         String ling = (String) spinnerPagamento.getSelectedItem();
 
         String mensagem;
@@ -81,8 +137,19 @@ public class MainActivity extends AppCompatActivity {
         }else{
             mensagem = getString(R.string.nenhum_selecionado);
         }
-        Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
+       // Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
 
+        Toast.makeText(this, mensagem1 + "\n" + mensagem2 + "\n" + mensagem, Toast.LENGTH_LONG).show();
+
+    }
+
+    public void limparTudo (View view){
+        //------------Limpar despesas---------
+        radioGroupDespesas.clearCheck();
+
+        //------------Limpar contas-----------
+        cbCarteira.setChecked(false);
+        cbContaCorrente.setChecked(false);
     }
 
 
