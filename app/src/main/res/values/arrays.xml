@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="categoria">
+        <item>@string/fixa</item>
+        <item>@string/lazer</item>
+        <item>@string/alimento</item>
+        <item>@string/transporte</item>
+        <item>@string/alimento</item>
+        <item>@string/fixa</item>
+        <item>@string/transporte</item>
+        <item>@string/fixa</item>
+        <item>@string/fixa</item>
+        <item>@string/lazer</item>
+    </string-array>
+
+    <string-array name="descricao">
+        <item>@string/agua</item>
+        <item>@string/natacao</item>
+        <item>@string/feira</item>
+        <item>@string/gasolina</item>
+        <item>@string/lanche</item>
+        <item>@string/telefone</item>
+        <item>@string/oficina</item>
+        <item>@string/energia</item>
+        <item>@string/cartao</item>
+        <item>@string/salto</item>
+    </string-array>
+
+    <string-array name="conta">
+        <item>@string/conta_corrente</item>
+        <item>@string/carteira</item>
+        <item>@string/conta_corrente</item>
+        <item>@string/conta_corrente</item>
+        <item>@string/carteira</item>
+        <item>@string/conta_corrente</item>
+        <item>@string/carteira</item>
+        <item>@string/conta_corrente</item>
+        <item>@string/conta_corrente</item>
+        <item>@string/conta_corrente</item>
+    </string-array>
+
+    <integer-array name="pagamento">
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>2</item>
+        <item>1</item>
+    </integer-array>
+
+    <string-array name="valor">
+        <item>60.68</item>
+        <item>50</item>
+        <item>1500.53</item>
+        <item>150</item>
+        <item>30.92</item>
+        <item>120</item>
+        <item>359</item>
+        <item>100</item>
+        <item>3000</item>
+        <item>500</item>
+    </string-array>
+
+
+</resources>

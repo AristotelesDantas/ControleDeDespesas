@@ -93,6 +93,14 @@
         app:layout_constraintStart_toStartOf="@+id/checkBoxCarteira"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxCarteira" />
 
+    <CheckBox
+        android:id="@+id/checkBoxPoupanca"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:text="Poupança"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxContaCorrente"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxContaCorrente" />
+
     <Spinner
         android:id="@+id/spinnerPagamento"
         android:layout_width="250dp"
@@ -105,11 +113,10 @@
         android:id="@+id/textViewPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/pagamento"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxContaCorrente"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxContaCorrente" />
+        app:layout_constraintStart_toStartOf="@+id/checkBoxPoupanca"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxPoupanca" />
 
     <Button
         android:id="@+id/buttonSalvar"
