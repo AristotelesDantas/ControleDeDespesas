@@ -60,8 +60,8 @@ public class ListagemActivity extends AppCompatActivity {
         for (int cont = 0; cont < categoria.length; cont++) {
 
             despesa = new Despesa(categoria[cont]);
-            despesa = new Despesa(descricao[cont]);
-            despesa = new Despesa(conta[cont]);
+            despesa.setDescricao(descricao[cont]);
+            despesa.setConta(conta[cont]);
             despesa.setPagamento(tipos[pagamento[cont]]);
 
             val = Float.parseFloat(valor[cont]);

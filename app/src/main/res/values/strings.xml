@@ -38,4 +38,7 @@
     <string name="descricao">Descrição :</string>
     <string name="conta">Conta :</string>
     <string name="valor">Valor =</string>
+    <string name="poupanca">Poupança</string>
+    <string name="valor_pago">é o valor pago!</string>
+    <string name="valor_nulo">O valor não pode ser nulo!</string>
 </resources>

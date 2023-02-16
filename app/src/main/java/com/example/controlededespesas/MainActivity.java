@@ -1,5 +1,7 @@
 package com.example.controlededespesas;
 
+import static com.example.controlededespesas.R.id.checkBoxPoupanca;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -13,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,9 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerPagamento;
     private RadioGroup radioGroupDespesas;
-    private CheckBox cbCarteira, cbContaCorrente;
+    private CheckBox cbCarteira, cbContaCorrente, cbPoupanca;
+    private EditText editValor;
+    private NumberFormat numberFormat;
 
-    @Override
+      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -62,8 +67,12 @@ public class MainActivity extends AppCompatActivity {
         spinnerPagamento = findViewById(R.id.spinnerPagamento);
         cbCarteira = findViewById(R.id.checkBoxCarteira);
         cbContaCorrente = findViewById(R.id.checkBoxContaCorrente);
+        cbPoupanca = findViewById(checkBoxPoupanca);
+        editValor = findViewById(R.id.TextViewValor);
 
         popularSpinner();
+
+          numberFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
     }
 
     public void popularSpinner(){
@@ -117,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
         if (cbContaCorrente.isChecked()){
             mensagem2 = getString(R.string.conta_corrente);
         }
+        if (cbPoupanca.isChecked()){
+            mensagem2 = getString(R.string.poupanca);
+        }
         if (mensagem2.equals("")){
             mensagem2 = getString(R.string.nenhuma_opcao_foi_selecionada);
         }else{
@@ -139,7 +151,18 @@ public class MainActivity extends AppCompatActivity {
         }
        // Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
 
-        Toast.makeText(this, mensagem1 + "\n" + mensagem2 + "\n" + mensagem, Toast.LENGTH_LONG).show();
+        //------------------Mostrar Valor pago--------------
+
+        int result = Integer.parseInt(editValor.getText().toString());
+        String mensagem3;
+
+        if (result != 0){
+            mensagem3 = result + " " + "Reais";
+        }else{
+            mensagem3 = getString(R.string.valor_nulo);
+        }
+
+        Toast.makeText(this, mensagem1 + "\n" + mensagem2 + "\n" + mensagem + "\n" + mensagem3, Toast.LENGTH_LONG).show();
 
     }
 
@@ -150,6 +173,12 @@ public class MainActivity extends AppCompatActivity {
         //------------Limpar contas-----------
         cbCarteira.setChecked(false);
         cbContaCorrente.setChecked(false);
+        cbPoupanca.setChecked(false);
+
+
+        //------------Limpar Valor-----------
+        editValor.setText("");
+
     }
 
 
