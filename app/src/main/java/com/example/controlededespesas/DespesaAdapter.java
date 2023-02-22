@@ -1,4 +1,4 @@
-package com.example.controlededespesas;
+/*package com.example.controlededespesas;
 
 import static com.example.controlededespesas.Tipo.Cartao;
 import static com.example.controlededespesas.Tipo.Dinheiro;
@@ -93,3 +93,4 @@ public class DespesaAdapter extends BaseAdapter {
         return view;
     }
 }
+*/

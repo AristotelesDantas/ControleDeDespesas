@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="categoria">
+    <!--string-array name="categoria">
         <item>@string/fixa</item>
         <item>@string/lazer</item>
         <item>@string/alimento</item>
@@ -38,22 +38,15 @@
         <item>@string/conta_corrente</item>
         <item>@string/conta_corrente</item>
         <item>@string/conta_corrente</item>
-    </string-array>
+    </string-array-->
 
     <integer-array name="pagamento">
-        <item>1</item>
-        <item>0</item>
-        <item>1</item>
-        <item>1</item>
-        <item>0</item>
-        <item>1</item>
-        <item>0</item>
-        <item>2</item>
-        <item>2</item>
-        <item>1</item>
+        <item>@string/dinheiro</item>
+        <item>@string/cartao</item>
+        <item>@string/pix</item>
     </integer-array>
 
-    <string-array name="valor">
+    <!--string-array name="valor">
         <item>60.68</item>
         <item>50</item>
         <item>1500.53</item>
@@ -64,7 +57,7 @@
         <item>100</item>
         <item>3000</item>
         <item>500</item>
-    </string-array>
+    </string-array-->
 
 
 </resources>

@@ -1,12 +1,15 @@
 package com.example.controlededespesas;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +17,10 @@ import java.util.List;
 public class ListagemActivity extends AppCompatActivity {
 
     private ListView listViewDespesas;
-    private ArrayList<Despesa> despesas;
+    private ArrayList<Despesa> listDespesas;
+    private ArrayAdapter<Despesa> listaAdapter;
+
+    private int posicaoSelecionada = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +35,38 @@ public class ListagemActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent,
                                             View view, int position,
                                             long id) {
-                        Despesa despesa = (Despesa) listViewDespesas.getItemAtPosition(position);
-
-                        Toast.makeText(getApplicationContext(), getString(R.string.foi_selecionado) +
-                                despesa.getCategoria() + despesa.getDescricao() +
-                                despesa.getConta() + despesa.getPagamento() +
-                                despesa.getValor(), Toast.LENGTH_LONG).show();
-
+                        posicaoSelecionada = position;
+                        alterarDespesa();
                     }
                 });
 
-        popularList();
+        listViewDespesas.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView,
+                                           View view, int position, long id) {
+                posicaoSelecionada = position;
+                alterarDespesa();
+                return true;
+            }
+        });
+
+        popularLista();
     }
 
-    private void popularList() {
+    private void popularLista() {
 
-        String[] categoria = getResources().getStringArray(R.array.categoria);
+        listDespesas = new ArrayList<>();
+
+        listaAdapter = new ArrayAdapter<>(this,
+                                            android.R.layout.simple_list_item_1,
+                                            listDespesas);
+
+        listViewDespesas.setAdapter(listaAdapter);
+
+
+
+
+        /*String[] categoria = getResources().getStringArray(R.array.categoria);
         String[] descricao = getResources().getStringArray(R.array.descricao);
         String[] conta = getResources().getStringArray(R.array.conta);
         int[] pagamento = getResources().getIntArray(R.array.pagamento);
@@ -73,5 +95,60 @@ public class ListagemActivity extends AppCompatActivity {
         DespesaAdapter despesaAdapter = new DespesaAdapter(this, despesas);
 
         listViewDespesas.setAdapter(despesaAdapter);
+    }*/
+    }
+
+    private void alterarDespesa(){
+        Despesa despesa = listDespesas.get(posicaoSelecionada);
+
+        MainActivity.alterarDespesa(this, despesa);
+    }
+
+    public void adicionarDespesa(View view){
+        MainActivity.novaDespesa(this);
+    }
+
+    public void abrirAutoria(View view){
+        Autoria.sobre(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+
+            Bundle bundle = data.getExtras();
+
+            int categoria = bundle.getInt(MainActivity.CATEGORIA);
+            String descricao = bundle.getString(MainActivity.DESCRICAO);
+            boolean carteira = bundle.getBoolean(MainActivity.CARTEIRA);
+            boolean conta_corrente = bundle.getBoolean(MainActivity.CONTACORRENTE);
+            boolean poupanca = bundle.getBoolean(MainActivity.POUPANCA);
+            String pagamento = bundle.getString(MainActivity.PAGAMENTO);
+            String valor = bundle.getString(MainActivity.VALOR);
+
+            if (requestCode == MainActivity.ALTERAR) {
+                Despesa despesa = listDespesas.get(posicaoSelecionada);
+
+                despesa.setCategoria(categoria);
+                despesa.setDescricao(descricao);
+                despesa.setCarteira(carteira);
+                despesa.setConta_corrente(conta_corrente);
+                despesa.setPoupanca(poupanca);
+                despesa.setPagamento(pagamento);
+                despesa.setValor(valor);
+
+                posicaoSelecionada = -1;
+            } else {
+                Despesa despesa = new Despesa(categoria, descricao, carteira, conta_corrente, poupanca, pagamento, valor);
+
+                listDespesas.add(despesa);
+            }
+            listaAdapter.notifyDataSetChanged();
+        }
     }
 }

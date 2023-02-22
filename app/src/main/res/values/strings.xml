@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Controle de Despesas</string>
-    <string name="tipos_de_despesas">Tipos de Despesas</string>
+    <string name="tipos_de_despesas">Categoria</string>
     <string name="despesas_fixas">Despesas Fixas</string>
     <string name="fixa">Fixa</string>
     <string name="despesas_com_alimentacao">Despesas com Alimentação</string>
@@ -14,7 +14,7 @@
     <string name="conta_corrente">Conta Corrente</string>
     <string name="pagamento">Pagamento :</string>
     <string name="salvar">Salvar</string>
-    <string name="limpar">Limpar</string>
+    <string name="limpar">Cancelar</string>
     <string name="dinheiro">Dinheiro</string>
     <string name="cartao">Cartão</string>
     <string name="pix">Pix</string>
@@ -41,4 +41,13 @@
     <string name="poupanca">Poupança</string>
     <string name="valor_pago">é o valor pago!</string>
     <string name="valor_nulo">O valor não pode ser nulo!</string>
+    <string name="nova_pessoa">Nova Pessoa</string>
+    <string name="alterar_despesa">alterar Despesa</string>
+    <string name="escolha_uma_opcao">Escolha uma opção</string>
+    <string name="campo_nao_pode_ser_vazio">Campo não pode ser vazio!</string>
+    <string name="forma_de_pagamento">Selecione uma forma de pagamento!</string>
+    <string name="digite_um_valor">Digite um valor!</string>
+    <string name="eu">\" eu\"</string>
+    <string name="doia_ponto">\": \"</string>
+    <string name="rs">\"R$: \"</string>
 </resources>
