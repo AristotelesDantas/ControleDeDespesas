@@ -142,28 +142,6 @@
         app:layout_constraintStart_toStartOf="@+id/checkBoxPoupanca"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxPoupanca" />
 
-    <Button
-        android:id="@+id/buttonSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:onClick="salvar"
-        android:text="@string/salvar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/buttonLimpar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:onClick="cancelar"
-        android:text="@string/limpar"
-        app:layout_constraintStart_toEndOf="@+id/buttonSalvar"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewValor" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"

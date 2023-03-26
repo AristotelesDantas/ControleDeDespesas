@@ -50,4 +50,9 @@
     <string name="eu">\" eu\"</string>
     <string name="doia_ponto">\": \"</string>
     <string name="rs">\"R$: \"</string>
+    <string name="sobre">Sobre</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="foi_clicado">foi clicado</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="excluir">Excluir</string>
 </resources>
