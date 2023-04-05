@@ -12,4 +12,17 @@
         android:icon="@android:drawable/ic_dialog_info"
         android:title="@string/sobre"
         app:showAsAction="ifRoom" />
+    <group
+        android:id="@+id/groupMudarTema"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuItemAula"
+            android:title="@string/aula_android" />
+        <item
+            android:id="@+id/menuItemDespesas"
+            android:title="@string/despesas" />
+        <item
+            android:id="@+id/menuItemControle"
+            android:title="@string/app_name" />
+    </group>
 </menu>

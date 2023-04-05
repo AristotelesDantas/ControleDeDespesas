@@ -6,6 +6,7 @@ import androidx.appcompat.view.ActionMode;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +20,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class ListagemActivity extends AppCompatActivity {
+
+    private static final String ARQUIVO = "Aristóteles.sharedpreferences.titulo";
+    private static final String TITULO = "TITULO";
+    private String opcao = "";
 
     private ListView listViewDespesas;
     private ArrayList<Despesa> listDespesas;
@@ -93,7 +98,7 @@ public class ListagemActivity extends AppCompatActivity {
                     }
         });
 
-        listViewDespesas.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        listViewDespesas.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         listViewDespesas.setOnItemLongClickListener(
                 new AdapterView.OnItemLongClickListener() {
@@ -119,7 +124,37 @@ public class ListagemActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
         popularLista();
+        lerTitulo();
+
+        }
+
+    private void lerTitulo(){
+
+        SharedPreferences shared = getSharedPreferences(ARQUIVO, MODE_PRIVATE);
+
+        opcao = shared.getString(TITULO, opcao);
+
+        mudaTitulo();
+        }
+
+    private void salvarTitulo(String novoTitulo){
+            SharedPreferences shared = getSharedPreferences(ARQUIVO, MODE_PRIVATE);
+
+            SharedPreferences.Editor editor = shared.edit();
+            editor.putString(TITULO, novoTitulo);
+            editor.commit();
+
+            opcao = novoTitulo;
+
+            mudaTitulo();
+
+        }
+
+    private void mudaTitulo(){
+            setTitle(opcao);
+
         }
 
     private void popularLista() {
@@ -133,12 +168,12 @@ public class ListagemActivity extends AppCompatActivity {
 
         }
 
-        private void excluirDespesa() {
+    private void excluirDespesa() {
         listDespesas.remove(posicaoSelecionada);
         listaAdapter.notifyDataSetChanged();
         }
 
-        private void alterarDespesa(){
+    private void alterarDespesa(){
 
         Despesa despesa = listDespesas.get(posicaoSelecionada);
         MainActivity.alterarDespesa(this, despesa);
@@ -200,17 +235,32 @@ public class ListagemActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        item.setChecked(true);
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menuItemAdicionar:
                 adicionarDespesa();
-               return true;
+                return true;
 
             case R.id.menuItemSobre:
                 abrirAutoria();
                 return true;
 
-            default: return super.onOptionsItemSelected(item);
+            case R.id.menuItemDespesas:
+                salvarTitulo(getString(R.string.despesas));
+                return true;
+
+            case R.id.menuItemAula:
+                salvarTitulo(getString(R.string.aula_android));
+                return true;
+
+            case R.id.menuItemControle:
+                salvarTitulo(getString(R.string.app_name));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
+
 }

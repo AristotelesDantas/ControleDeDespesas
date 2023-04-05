@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Controle de Despesas</string>
+    <string name="tipos_de_despesas">Categoria</string>
+    <string name="despesas_fixas">Despesas Fixas</string>
+    <string name="despesas_com_alimentacao">Despesas com Alimentação</string>
+    <string name="despesas_com_transporte">Despesas com Transporte</string>
+    <string name="despesas_com_lazer">Despesas com Lazer</string>
+    <string name="contas">Contas</string>
+    <string name="carteira">Carteira</string>
+    <string name="conta_corrente">Conta Corrente</string>
+    <string name="pagamento">Pagamento :</string>
+    <string name="salvar">Salvar</string>
+    <string name="dinheiro">Dinheiro</string>
+    <string name="cartao">Cartão</string>
+    <string name="pix">Pix</string>
+    <string name="descricao">Descrição :</string>
+    <string name="valor">Valor =</string>
+    <string name="alterar_despesa">alterar Despesa</string>
+    <string name="escolha_uma_opcao">Escolha uma opção</string>
+    <string name="campo_nao_pode_ser_vazio">Campo não pode ser vazio!</string>
+    <string name="forma_de_pagamento">Selecione uma forma de pagamento!</string>
+    <string name="digite_um_valor">Digite um valor!</string>
+    <string name="sobre">Sobre</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="excluir">Excluir</string>
+
+</resources>
